@@ -23,7 +23,7 @@ def train_regression(hparams, find_batch_size_automatically: bool = False):
         raise NotImplementedError(f"Model '{hparams.model}' not implemented")
 
     # ========== HPC-SPECIFIC CHANGE ========== #
-    default_save_path = "/scratch-shared/tmp.Udl4HYbZtd/data"
+    default_save_path = "/scratch-shared/tmp.Udl4HYbZtd/models"
     # ========================================== #
 
     checkpoint_callback = ModelCheckpoint(
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     # ========== HPC-SPECIFIC CHANGE ========== #
     parser.add_argument(
         "--dataset_folder",
-        default=ROOT_DIR / "Data" / "Precipitation" / "era5_rain-threshold-train-test-v2-20.h5",
+        default="/scratch-shared/tmp.Udl4HYbZtd/data",
         type=str,
     )
     # ========================================== #
@@ -92,9 +92,6 @@ if __name__ == "__main__":
     args.use_oversampled_dataset = True
     # ============================================ #
 
-    # ========== HPC-SPECIFIC DATA PATH ========== #
-    args.dataset_folder = "/scratch-shared/tmp.Udl4HYbZtd/data"  # Hardcoded HPC path
-    # ============================================ #
 
     print(f"Start training model: {args.model}")
     train_regression(args, find_batch_size_automatically=False)
