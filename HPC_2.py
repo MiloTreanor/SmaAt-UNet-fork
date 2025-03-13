@@ -35,7 +35,6 @@ def train_regression(hparams, find_batch_size_automatically: bool = False):
     )
     lr_monitor = LearningRateMonitor()
     tb_logger = loggers.TensorBoardLogger(save_dir=default_save_path, name=net.__class__.__name__)
-
     earlystopping_callback = EarlyStopping(
         monitor="val_loss",
         mode="min",
@@ -75,7 +74,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("--batch_size", type=int, default=16, help="Batch size for training")
     parser.add_argument("--learning_rate", type=float, default=0.001, help="Learning rate")
-    parser.add_argument("--epochs", type=int, default=200, help="Number of training epochs")
+    parser.add_argument("--epochs", type=int, default=2, help="Number of training epochs")
     # Use store_true so that --fast_dev_run sets the flag to True when provided
     parser.add_argument("--fast_dev_run", action="store_true", help="Run a fast development run")
     parser.add_argument("--resume_from_checkpoint", type=str, default=None, help="Checkpoint path to resume training")
