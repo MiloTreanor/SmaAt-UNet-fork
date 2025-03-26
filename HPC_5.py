@@ -23,7 +23,7 @@ def train_regression(hparams, find_batch_size_automatically: bool = False):
         raise NotImplementedError(f"Model '{hparams.model}' not implemented")
 
     # HPC-specific change: Use HPC paths instead of ROOT_DIR
-    default_save_path = "/scratch-shared/tmp.Udl4HYbZtd/models/Smat20"
+    default_save_path = "/scratch-shared/tmp.Udl4HYbZtd/models/Smat50"
 
     checkpoint_callback = ModelCheckpoint(
         dirpath=default_save_path,
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     # Add additional arguments (ensure these are added AFTER the base arguments)
     parser.add_argument(
         "--dataset_folder",
-        default="/scratch-shared/tmp.Udl4HYbZtd/train_test_2016-2019_input-length_12_img-ahead_6_rain-threshold_20.h5",
+        default="/scratch-shared/tmp.Udl4HYbZtd/train_test_2016-2019_input-length_12_img-ahead_6_rain-threshold_50.h5",
         type=str,
         help="Path to the dataset folder",
     )
