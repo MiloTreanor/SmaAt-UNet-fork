@@ -72,7 +72,7 @@ if __name__ == "__main__":
         type=str,
         help="Path to the dataset folder",
     )
-    parser.add_argument("--batch_size", type=int, default=16, help="Batch size for training")
+    parser.add_argument("--batch_size", type=int, default=32, help="Batch size for training")
     parser.add_argument("--learning_rate", type=float, default=0.001, help="Learning rate")
     parser.add_argument("--epochs", type=int, default=200, help="Number of training epochs")
     # Use store_true so that --fast_dev_run sets the flag to True when provided
