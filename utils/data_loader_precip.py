@@ -17,7 +17,7 @@ def get_train_valid_loader(
     classification,
     valid_size=0.1,
     shuffle=True,
-    num_workers=4,
+    num_workers=17,
     pin_memory=True,
 ):
     """
@@ -145,7 +145,7 @@ def get_test_loader(
     num_output_images,
     classification,
     shuffle=False,
-    num_workers=4,
+    num_workers=17,
     pin_memory=False,
 ):
     """
@@ -209,7 +209,7 @@ if __name__ == "__main__":
     data = "RAD_NL25_RAC_5min_train_test_2016-2019.h5"
     train_dl, valid_dl = get_train_valid_loader(
         folder / data,
-        batch_size=8,
+        batch_size=32,
         random_seed=1337,
         num_input_images=12,
         num_output_images=6,
@@ -217,7 +217,7 @@ if __name__ == "__main__":
         augment=False,
         valid_size=0.1,
         shuffle=True,
-        num_workers=4,
+        num_workers=17,
         pin_memory=True,
     )
     for xb, yb in train_dl:
